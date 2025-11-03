@@ -1,14 +1,12 @@
 import NavbarComponent from "../NavbarComponent/NavbarComponent.tsx";
 
-const DashboardComponent = () => {
+const RegistraAutoComponent = () => {
   return (
     <>
       <NavbarComponent />
-      <div>
-        Dashboard ok!
-      </div>
+      Registra auto ok!
     </>
   );
 };
 
-export default DashboardComponent;
+export default RegistraAutoComponent;

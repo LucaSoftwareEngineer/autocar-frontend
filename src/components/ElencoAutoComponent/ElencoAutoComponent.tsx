@@ -1,14 +1,12 @@
 import NavbarComponent from "../NavbarComponent/NavbarComponent.tsx";
 
-const DashboardComponent = () => {
+const ElencoAutoComponent = () => {
   return (
     <>
       <NavbarComponent />
-      <div>
-        Dashboard ok!
-      </div>
+      Elenco auto ok!
     </>
   );
 };
 
-export default DashboardComponent;
+export default ElencoAutoComponent;

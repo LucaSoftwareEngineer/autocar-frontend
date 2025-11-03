@@ -1,14 +1,12 @@
 import NavbarComponent from "../NavbarComponent/NavbarComponent.tsx";
 
-const DashboardComponent = () => {
+const AutoImpostaTargaComponent = () => {
   return (
     <>
       <NavbarComponent />
-      <div>
-        Dashboard ok!
-      </div>
+      Auto imposta targa ok
     </>
   );
 };
 
-export default DashboardComponent;
+export default AutoImpostaTargaComponent;
