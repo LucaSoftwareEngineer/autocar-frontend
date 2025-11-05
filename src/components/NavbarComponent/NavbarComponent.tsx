@@ -1,7 +1,11 @@
 import SidebarComponent from "../SidebarComponent/SidebarComponent.tsx";
 import { useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
+import { useNavigate } from "react-router";
 
 const NavbarComponent = () => {
+
+  const navigate = useNavigate();
 
   const [isOpenUserDropDownMenu, setisOpenUserDropDownMenu] = useState(false);
   const [isOpenSidebarMobile, setisOpenSidebarMobile] = useState(true);
@@ -23,6 +27,17 @@ const NavbarComponent = () => {
   const sidebarMobileChiusa = "hidden fixed top-0 left-0 z-40 w-64 h-screen pt-16 bg-white border-r border-gray-200";
 
   const sidebarMobile = isOpenSidebarMobile ? sidebarMobileAperta : sidebarMobileChiusa;
+
+  const logoutHandler = () => {
+    toast.success("Logout effettuato correttamente!");
+    setTimeout(() => {
+      navigate("/");
+    }, 3000);
+  }
+
+  const dashboardHandler = () => {
+    navigate("/dashboard");
+  }
 
   return (
     <>
@@ -96,13 +111,15 @@ const NavbarComponent = () => {
         <ul className="py-1" role="none">
           <li>
             <a
-              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+              onClick={dashboardHandler}
+              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
               role="menuitem"
             >Dashboard</a
             >
           </li>
           <li>
             <a
+              onClick={logoutHandler}
               className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
               role="menuitem"
             >Esci</a>
@@ -110,6 +127,7 @@ const NavbarComponent = () => {
         </ul>
       </div>
       <SidebarComponent sidebarClasse={sidebarMobile} />
+      <ToastContainer />
     </>
   );
 };
