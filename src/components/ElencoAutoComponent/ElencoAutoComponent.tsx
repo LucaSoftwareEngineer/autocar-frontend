@@ -38,7 +38,12 @@ const ElencoAutoComponent = () => {
                 >
                   <option selected>Seleziona la colonna</option>
                   {colonne.map((colonna) => {
-                    return <option value={colonna.key}>{colonna.value}</option>;
+                    //non è un errore, il valore della option è la key
+                    return (
+                      <option key={colonna.key} value={colonna.key}>
+                        {colonna.value}
+                      </option>
+                    );
                   })}
                 </select>
               </div>
@@ -109,7 +114,7 @@ const ElencoAutoComponent = () => {
               <tr>
                 {colonne.map((colonna) => {
                   return (
-                    <th scope="col" className="px-6 py-3">
+                    <th key={colonna.key} scope="col" className="px-6 py-3">
                       {colonna.value}
                     </th>
                   );
@@ -121,7 +126,10 @@ const ElencoAutoComponent = () => {
             </thead>
             <tbody>
               {elencoAuto?.map((auto) => (
-                <tr className="border-b border-gray-200 odd:bg-white even:bg-gray-50">
+                <tr
+                  key={auto.id}
+                  className="border-b border-gray-200 odd:bg-white even:bg-gray-50"
+                >
                   <th
                     scope="row"
                     className="px-6 py-4 font-medium whitespace-nowrap text-gray-900"
