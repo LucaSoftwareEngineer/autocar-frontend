@@ -1,51 +1,15 @@
+import useCercaAuto from "../../hooks/useCercaAuto.tsx";
 import NavbarComponent from "../NavbarComponent/NavbarComponent.tsx";
-import elencoAutoAllService from "../../services/ElencoAutoService/ElencoAutoAllService.ts";
-import { useEffect, useState } from "react";
-import { IAuto } from "../../services/ElencoAutoService/IAuto.ts";
-import ElencoAutoFilterService from "../../services/ElencoAutoService/ElencoAutoFilterService.ts";
 
 const ElencoAutoComponent = () => {
-  const [elencoAuto, setElencoAuto] = useState<IAuto[]>([]);
-  const [filtroRicercaByColonna, setFiltroRicercaByColonna] =
-    useState<string>("");
-  const [filtroRicerca, setFiltroRicerca] = useState<string | number>("");
-
-  const [isFiltrato, setIsFiltrato] = useState<boolean>(false);
-
-  useEffect(() => {
-    elencoAutoAllService().then((res) => {
-      setElencoAuto(res.data);
-    });
-  }, []);
-
-  const handlerCercaAutoOnChange = (filtroRicerca: string) => {
-    setFiltroRicerca(filtroRicerca);
-  };
-
-  const handletSelectColonnaOnChange = (colonnaSelezionata: string) => {
-    setFiltroRicercaByColonna(colonnaSelezionata);
-  };
-
-  const handlerCercaAutoOnSubmit = () => {
-    if (filtroRicerca != undefined && filtroRicercaByColonna != undefined) {
-      setElencoAuto(
-        ElencoAutoFilterService({
-          listaAuto: elencoAuto,
-          filtro: filtroRicerca,
-          filtraBy: filtroRicercaByColonna,
-        }),
-      );
-      setIsFiltrato(true);
-    }
-  };
-
-  const handlerResetFiltro = () => {
-    setElencoAuto([]);
-    elencoAutoAllService().then((res) => {
-      setElencoAuto(res.data);
-    });
-    setIsFiltrato(false);
-  };
+  const {
+    elencoAuto,
+    isFiltrato,
+    handlerCercaAutoOnChange,
+    handletSelectColonnaOnChange,
+    handlerCercaAutoOnSubmit,
+    handlerResetFiltro,
+  } = useCercaAuto();
 
   const colonne = [
     { key: "TARGA", value: "Targa" },
