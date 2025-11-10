@@ -1,118 +1,121 @@
+import useRegistraAuto from "../../hooks/useRegistraAuto.tsx";
 import NavbarComponent from "../NavbarComponent/NavbarComponent.tsx";
-import { useState } from "react";
-import { toast, ToastContainer } from "react-toastify";
-import RegistraAutoService from "../../services/RegistraAutoService/RegistraAutoService.ts";
-import { useNavigate } from "react-router";
+import { ToastContainer } from "react-toastify";
 
 const RegistraAutoComponent = () => {
-
-  const navigate = useNavigate();
-
-  const [marca, setMarca] = useState("");
-  const [modello, setModello] = useState("");
-  const [colore, setColore] = useState("");
-  const [numeroRuote, setNumeroRuote] = useState(0);
-  const [cavalli, setCavalli] = useState(0);
-
-  const registraAutoHandler = () => {
-
-    let nErr = 0;
-
-    if (marca.trim() == "") {
-      toast.warn("Inserisci la marca dell'auto");
-      nErr++;
-    }
-
-    if (modello.trim() == "") {
-      toast.warn("Inserisci il modello dell'auto");
-      nErr++;
-    }
-
-    if (colore.trim() == "") {
-      toast.warn("Inserisci colore dell'auto");
-      nErr++;
-    }
-
-    if (numeroRuote == 0) {
-      toast.warn("Inserisci il numero delle ruote dell'auto");
-      nErr++;
-    }
-
-    if (cavalli == 0) {
-      toast.warn("Inserisci il numero di cavalli dell'auto");
-      nErr++;
-    }
-
-    if (nErr == 0) {
-      RegistraAutoService({
-        marca: marca,
-        modello: modello,
-        colore: colore,
-        numeroRuote: numeroRuote,
-        cavalli: cavalli,
-      }).then(() => {
-        toast.success("Auto registrata correttamente!");
-        setTimeout(() => {
-          navigate("/auto/elenco");
-        }, 3000);
-      }).catch(() => {
-        toast.error("Si è verificato un errore, riprova più tardi");
-      })
-    }
-  }
+  const {
+    setMarca,
+    setColore,
+    setModello,
+    setNumeroRuote,
+    setCavalli,
+    registraAutoHandler,
+  } = useRegistraAuto();
 
   return (
     <>
       <NavbarComponent />
 
       <div className="mt-[100px]">
-        <div className="max-w-md mx-auto">
-          <h1 className="text-[#DF03AF] font-bold mb-[15px]">Inserisci nuova auto consegnata al concessionario</h1>
-          <div className="relative z-0 w-full mb-5 group">
-            <input type="text" name="floating_marca" id="floating_marca"
-                   onChange={(event) => setMarca(event.target.value)}
-                   className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-[#DF03AF] peer"
-                   placeholder=" " required />
-            <label htmlFor="floating_marca"
-                   className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-[#DF03AF] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Marca</label>
+        <div className="mx-auto max-w-md">
+          <h1 className="mb-[15px] font-bold text-[#DF03AF]">
+            Inserisci nuova auto consegnata al concessionario
+          </h1>
+          <div className="group relative z-0 mb-5 w-full">
+            <input
+              type="text"
+              name="floating_marca"
+              id="floating_marca"
+              onChange={(event) => setMarca(event.target.value)}
+              className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent px-0 py-2.5 text-sm text-gray-900 focus:border-[#DF03AF] focus:ring-0 focus:outline-none"
+              placeholder=" "
+              required
+            />
+            <label
+              htmlFor="floating_marca"
+              className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:start-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:font-medium peer-focus:text-[#DF03AF] rtl:peer-focus:left-auto rtl:peer-focus:translate-x-1/4"
+            >
+              Marca
+            </label>
           </div>
-          <div className="relative z-0 w-full mb-5 group">
-            <input type="text" name="floating_modello" id="floating_modello"
-                   onChange={(event) => setModello(event.target.value)}
-                   className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-[#DF03AF] peer"
-                   placeholder=" " required />
-            <label htmlFor="floating_modello"
-                   className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-[#DF03AF] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Modello</label>
+          <div className="group relative z-0 mb-5 w-full">
+            <input
+              type="text"
+              name="floating_modello"
+              id="floating_modello"
+              onChange={(event) => setModello(event.target.value)}
+              className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent px-0 py-2.5 text-sm text-gray-900 focus:border-[#DF03AF] focus:ring-0 focus:outline-none"
+              placeholder=" "
+              required
+            />
+            <label
+              htmlFor="floating_modello"
+              className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:start-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:font-medium peer-focus:text-[#DF03AF] rtl:peer-focus:translate-x-1/4"
+            >
+              Modello
+            </label>
           </div>
-          <div className="relative z-0 w-full mb-5 group">
-            <input type="text" name="floating_colore" id="floating_colore"
-                   onChange={(event) => setColore(event.target.value)}
-                   className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-[#DF03AF] peer"
-                   placeholder=" " required />
-            <label htmlFor="floating_colore"
-                   className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-[#DF03AF] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Colore</label>
+          <div className="group relative z-0 mb-5 w-full">
+            <input
+              type="text"
+              name="floating_colore"
+              id="floating_colore"
+              onChange={(event) => setColore(event.target.value)}
+              className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent px-0 py-2.5 text-sm text-gray-900 focus:border-[#DF03AF] focus:ring-0 focus:outline-none"
+              placeholder=" "
+              required
+            />
+            <label
+              htmlFor="floating_colore"
+              className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:start-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:font-medium peer-focus:text-[#DF03AF] rtl:peer-focus:translate-x-1/4"
+            >
+              Colore
+            </label>
           </div>
           <div className="grid md:grid-cols-2 md:gap-6">
-            <div className="relative z-0 w-full mb-5 group">
-              <input type="number" name="floating_numero_ruote" id="floating_numero_ruote"
-                     onChange={(event) =>setNumeroRuote(parseInt(event.target.value))}
-                     className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-[#DF03AF] peer"
-                     placeholder=" " required />
-              <label htmlFor="floating_numero_ruote"
-                     className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-[#DF03AF] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Numero Ruote</label>
+            <div className="group relative z-0 mb-5 w-full">
+              <input
+                type="number"
+                name="floating_numero_ruote"
+                id="floating_numero_ruote"
+                onChange={(event) =>
+                  setNumeroRuote(parseInt(event.target.value))
+                }
+                className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent px-0 py-2.5 text-sm text-gray-900 focus:border-[#DF03AF] focus:ring-0 focus:outline-none"
+                placeholder=" "
+                required
+              />
+              <label
+                htmlFor="floating_numero_ruote"
+                className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:start-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:font-medium peer-focus:text-[#DF03AF] rtl:peer-focus:translate-x-1/4"
+              >
+                Numero Ruote
+              </label>
             </div>
-            <div className="relative z-0 w-full mb-5 group">
-              <input type="number" name="floating_cavalli" id="floating_cavalli"
-                     onChange={(event) =>setCavalli(parseInt(event.target.value))}
-                     className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-[#DF03AF] peer"
-                     placeholder=" " required />
-              <label htmlFor="floating_cavalli"
-                     className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-[#DF03AF] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Cavalli</label>
+            <div className="group relative z-0 mb-5 w-full">
+              <input
+                type="number"
+                name="floating_cavalli"
+                id="floating_cavalli"
+                onChange={(event) => setCavalli(parseInt(event.target.value))}
+                className="peer block w-full appearance-none border-0 border-b-2 border-gray-300 bg-transparent px-0 py-2.5 text-sm text-gray-900 focus:border-[#DF03AF] focus:ring-0 focus:outline-none"
+                placeholder=" "
+                required
+              />
+              <label
+                htmlFor="floating_cavalli"
+                className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:start-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:font-medium peer-focus:text-[#DF03AF] rtl:peer-focus:translate-x-1/4"
+              >
+                Cavalli
+              </label>
             </div>
           </div>
-          <button type="button"
-                  onClick={registraAutoHandler}
-                  className="cursor-pointer text-white bg-[#DF03AF] hover:bg-gray-900 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">Registra auto
+          <button
+            type="button"
+            onClick={registraAutoHandler}
+            className="w-full cursor-pointer rounded-lg bg-[#DF03AF] px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-900 focus:ring-4 focus:ring-blue-300 focus:outline-none sm:w-auto"
+          >
+            Registra auto
           </button>
         </div>
       </div>
