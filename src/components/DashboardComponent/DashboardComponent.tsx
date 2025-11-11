@@ -1,8 +1,10 @@
+import useReportConcessionario from "../../hooks/useReportConcessionario.tsx";
 import useUserDetails from "../../hooks/useUserDetails.tsx";
 import NavbarComponent from "../NavbarComponent/NavbarComponent.tsx";
 
 const DashboardComponent = () => {
   const { email } = useUserDetails();
+  const { report } = useReportConcessionario();
 
   return (
     <>
@@ -91,8 +93,8 @@ const DashboardComponent = () => {
                             <b>Numero di auto senza targa:</b>
                           </td>
                           <td className="p-[5px] pl-[20px] text-gray-950">
-                            {" "}
-                            auto
+                            {report.autoSenzaTarga}
+                            &nbsp; auto
                           </td>
                         </tr>
                         <tr>
@@ -100,8 +102,8 @@ const DashboardComponent = () => {
                             <b>Numero di auto con targa:</b>
                           </td>
                           <td className="p-[5px] pl-[20px] text-gray-950">
-                            {" "}
-                            auto
+                            {report.autoConTarga}
+                            &nbsp; auto
                           </td>
                         </tr>
                         <tr>
@@ -109,8 +111,8 @@ const DashboardComponent = () => {
                             <b>Numero totale di auto:</b>
                           </td>
                           <td className="p-[5px] pl-[20px] text-gray-950">
-                            {" "}
-                            auto
+                            {report.autoComplessive}
+                            &nbsp; auto
                           </td>
                         </tr>
                       </tbody>
