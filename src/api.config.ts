@@ -5,4 +5,5 @@ export class ApiConfig {
   registraAuto: string = "http://localhost:8087/api/auto/registra";
   elencoAutoAll: string = "http://localhost:8087/api/auto/elenco";
   reportAuto: string = "http://localhost:8087/api/auto/report";
+  impostaTarga: string = "http://localhost:8087/api/auto/imposta/targa";
 }
