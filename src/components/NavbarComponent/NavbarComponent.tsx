@@ -2,9 +2,10 @@ import SidebarComponent from "../SidebarComponent/SidebarComponent.tsx";
 import { useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import { useNavigate } from "react-router";
+import useTokenCheck from "../../hooks/useTokenCheck.tsx";
 
 const NavbarComponent = () => {
-
+  useTokenCheck();
   const navigate = useNavigate();
 
   const [isOpenUserDropDownMenu, setisOpenUserDropDownMenu] = useState(false);
@@ -16,32 +17,40 @@ const NavbarComponent = () => {
 
   const toggleSidebarMobile = () => {
     setisOpenSidebarMobile(!isOpenSidebarMobile);
-  }
+  };
 
-  const userDropDownClasseChiuso = "fixed my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-sm shadow-sm absolute z-50 top-[50px] right-0 hidden";
-  const userdropDownClasseAperto = "fixed my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-sm shadow-sm absolute z-50 top-[50px] right-0";
+  const userDropDownClasseChiuso =
+    "fixed my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-sm shadow-sm absolute z-50 top-[50px] right-0 hidden";
+  const userdropDownClasseAperto =
+    "fixed my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-sm shadow-sm absolute z-50 top-[50px] right-0";
 
-  const userDropDownClasse = isOpenUserDropDownMenu ? userdropDownClasseAperto : userDropDownClasseChiuso;
+  const userDropDownClasse = isOpenUserDropDownMenu
+    ? userdropDownClasseAperto
+    : userDropDownClasseChiuso;
 
-  const sidebarMobileAperta = "fixed top-0 left-0 z-40 w-64 h-screen pt-16 bg-white border-r border-gray-200";
-  const sidebarMobileChiusa = "hidden fixed top-0 left-0 z-40 w-64 h-screen pt-16 bg-white border-r border-gray-200";
+  const sidebarMobileAperta =
+    "fixed top-0 left-0 z-40 w-64 h-screen pt-16 bg-white border-r border-gray-200";
+  const sidebarMobileChiusa =
+    "hidden fixed top-0 left-0 z-40 w-64 h-screen pt-16 bg-white border-r border-gray-200";
 
-  const sidebarMobile = isOpenSidebarMobile ? sidebarMobileAperta : sidebarMobileChiusa;
+  const sidebarMobile = isOpenSidebarMobile
+    ? sidebarMobileAperta
+    : sidebarMobileChiusa;
 
   const logoutHandler = () => {
     toast.success("Logout effettuato correttamente!");
     setTimeout(() => {
       navigate("/");
     }, 3000);
-  }
+  };
 
   const dashboardHandler = () => {
     navigate("/dashboard");
-  }
+  };
 
   return (
     <>
-      <nav className="fixed top-0 z-50 w-full bg-[#DF03AF] border-b border-gray-200">
+      <nav className="fixed top-0 z-50 w-full border-b border-gray-200 bg-[#DF03AF]">
         <div className="px-3 py-3 lg:px-5 lg:pl-3">
           <div className="flex items-center justify-between">
             <div className="flex items-center justify-start rtl:justify-end">
@@ -51,11 +60,11 @@ const NavbarComponent = () => {
                 aria-controls="logo-sidebar"
                 type="button"
                 onClick={toggleSidebarMobile}
-                className="inline-flex items-center p-2 text-sm text-white rounded-lg sm:hidden hover:bg-[#DF03AF] cursor-pointer focus:outline-none focus:ring-2 focus:ring-gray-200"
+                className="inline-flex cursor-pointer items-center rounded-lg p-2 text-sm text-white hover:bg-[#DF03AF] focus:ring-2 focus:ring-gray-200 focus:outline-none sm:hidden"
               >
                 <span className="sr-only">Open sidebar</span>
                 <svg
-                  className="w-6 h-6"
+                  className="h-6 w-6"
                   aria-hidden="true"
                   fill="currentColor"
                   viewBox="0 0 20 20"
@@ -68,43 +77,42 @@ const NavbarComponent = () => {
                   ></path>
                 </svg>
               </button>
-              <a className="cursor-pointer flex ms-2 md:me-24">
-                <div className="bg-white rounded-[3px] me-3">
+              <a className="ms-2 flex cursor-pointer md:me-24">
+                <div className="me-3 rounded-[3px] bg-white">
                   <img src="/logo.png" className="h-8" alt="Logo" />
                 </div>
-                <span
-                  className="self-center text-xl font-semibold sm:text-2xl text-white whitespace-nowrap"
-                ><i>Autocar</i></span
-                >
+                <span className="self-center text-xl font-semibold whitespace-nowrap text-white sm:text-2xl">
+                  <i>Autocar</i>
+                </span>
               </a>
             </div>
             <div className="flex items-center">
-              <div className="flex items-center ms-3">
+              <div className="ms-3 flex items-center">
                 <div>
                   <button
                     onClick={toggleUserDropDown}
                     type="button"
-                    className="cursor-pointer flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300"
+                    className="flex cursor-pointer rounded-full bg-gray-800 text-sm focus:ring-4 focus:ring-gray-300"
                   >
                     <span className="sr-only">Open user menu</span>
                     <img
-                      className="w-8 h-8 rounded-full"
+                      className="h-8 w-8 rounded-full"
                       src="/user-profile-foto.PNG"
                       alt="user photo"
                     />
                   </button>
                 </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
       </nav>
-      <div
-        className={userDropDownClasse}
-      >
+      <div className={userDropDownClasse}>
         <div className="px-4 py-3" role="none">
-          <p className="text-sm text-gray-900" role="none">name surname</p>
-          <p className="text-sm font-medium text-gray-900 truncate" role="none">
+          <p className="text-sm text-gray-900" role="none">
+            name surname
+          </p>
+          <p className="truncate text-sm font-medium text-gray-900" role="none">
             username
           </p>
         </div>
@@ -112,17 +120,20 @@ const NavbarComponent = () => {
           <li>
             <a
               onClick={dashboardHandler}
-              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
+              className="block cursor-pointer px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
               role="menuitem"
-            >Dashboard</a
             >
+              Dashboard
+            </a>
           </li>
           <li>
             <a
               onClick={logoutHandler}
-              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 cursor-pointer"
+              className="block cursor-pointer px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
               role="menuitem"
-            >Esci</a>
+            >
+              Esci
+            </a>
           </li>
         </ul>
       </div>
