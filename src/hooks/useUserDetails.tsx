@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import UserDetailsService from "../services/UserDetailsService/UserDetailsService";
-import TokenCheckService from "../services/TokenCheckService/TokenCheckService";
 
 const useUserDetails = () => {
   const [email, setEmail] = useState<string>("");
@@ -8,9 +7,6 @@ const useUserDetails = () => {
   useEffect(() => {
     UserDetailsService().then((res) => {
       setEmail(res.data.email);
-    });
-    TokenCheckService().catch(() => {
-      console.log("non valido");
     });
   }, []);
 

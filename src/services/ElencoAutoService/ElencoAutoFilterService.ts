@@ -1,7 +1,6 @@
 import type { IFiltraAuto } from "./IFiltraAuto";
 
 const ElencoAutoFilterService = (props: IFiltraAuto) => {
-  console.log(props.filtraBy);
   switch (props.filtraBy) {
     case "TARGA":
       return props.listaAuto.filter((auto) =>
