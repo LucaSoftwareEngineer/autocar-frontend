@@ -33,7 +33,7 @@ const RegistraAutoComponent = () => {
             />
             <label
               htmlFor="floating_marca"
-              className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:start-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:font-medium peer-focus:text-[#DF03AF] rtl:peer-focus:left-auto rtl:peer-focus:translate-x-1/4"
+              className="absolute top-3 -z-10 origin-left -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:start-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:font-medium peer-focus:text-[#DF03AF] rtl:peer-focus:left-auto rtl:peer-focus:translate-x-1/4"
             >
               Marca
             </label>
@@ -50,7 +50,7 @@ const RegistraAutoComponent = () => {
             />
             <label
               htmlFor="floating_modello"
-              className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:start-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:font-medium peer-focus:text-[#DF03AF] rtl:peer-focus:translate-x-1/4"
+              className="absolute top-3 -z-10 origin-left -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:start-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:font-medium peer-focus:text-[#DF03AF] rtl:peer-focus:translate-x-1/4"
             >
               Modello
             </label>
@@ -67,7 +67,7 @@ const RegistraAutoComponent = () => {
             />
             <label
               htmlFor="floating_colore"
-              className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:start-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:font-medium peer-focus:text-[#DF03AF] rtl:peer-focus:translate-x-1/4"
+              className="absolute top-3 -z-10 origin-left -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:start-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:font-medium peer-focus:text-[#DF03AF] rtl:peer-focus:translate-x-1/4"
             >
               Colore
             </label>
@@ -87,7 +87,7 @@ const RegistraAutoComponent = () => {
               />
               <label
                 htmlFor="floating_numero_ruote"
-                className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:start-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:font-medium peer-focus:text-[#DF03AF] rtl:peer-focus:translate-x-1/4"
+                className="absolute top-3 -z-10 origin-left -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:start-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:font-medium peer-focus:text-[#DF03AF] rtl:peer-focus:translate-x-1/4"
               >
                 Numero Ruote
               </label>
@@ -104,7 +104,7 @@ const RegistraAutoComponent = () => {
               />
               <label
                 htmlFor="floating_cavalli"
-                className="absolute top-3 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:start-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:font-medium peer-focus:text-[#DF03AF] rtl:peer-focus:translate-x-1/4"
+                className="absolute top-3 -z-10 origin-left -translate-y-6 scale-75 transform text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:start-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:font-medium peer-focus:text-[#DF03AF] rtl:peer-focus:translate-x-1/4"
               >
                 Cavalli
               </label>

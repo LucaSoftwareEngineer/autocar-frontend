@@ -13,7 +13,7 @@ const AutoImpostaTargaComponent = () => {
       <div>
         <div className="p-4 sm:ml-64">
           <div className="mt-[60px] md:mt-[50px]">
-            <div className="w-[100%] rounded-lg border border-gray-200 bg-white shadow-sm">
+            <div className="w-full rounded-lg border border-gray-200 bg-white shadow-sm">
               <div className="rounded-t-lg bg-[#DF03AF] p-3">
                 <a className="cursor-pointer">
                   <h5 className="mb-2 text-2xl font-bold tracking-tight text-white">

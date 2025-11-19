@@ -25,10 +25,10 @@ const ElencoAutoComponent = () => {
       <NavbarComponent />
 
       <div className="md:m-[30px] md:ml-[290px]">
-        <div className="relative mt-[80px] overflow-x-auto shadow-md sm:rounded-lg">
+        <div className="relative mt-20 overflow-x-auto shadow-md sm:rounded-lg">
           <div>
-            <form className="mb-[20px] flex p-[10px] md:inline-flex">
-              <div id="select-filtro" className="w-[200px] pr-[20px]">
+            <form className="mb-5 flex p-2.5 md:inline-flex">
+              <div id="select-filtro" className="w-[200px] pr-5">
                 <select
                   onChange={(event) => {
                     handletSelectColonnaOnChange(event.target.value);

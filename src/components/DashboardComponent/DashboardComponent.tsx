@@ -12,7 +12,7 @@ const DashboardComponent = () => {
       <div>
         <div className="p-4 sm:ml-64">
           <div className="mt-[60px] md:mt-[50px]">
-            <div className="w-[100%] rounded-lg border border-gray-200 bg-white shadow-sm">
+            <div className="w-full rounded-lg border border-gray-200 bg-white shadow-sm">
               <div className="rounded-t-lg bg-[#DF03AF] p-3">
                 <a className="cursor-pointer">
                   <h5 className="mb-2 text-2xl font-bold tracking-tight text-white">
@@ -33,7 +33,7 @@ const DashboardComponent = () => {
               </div>
             </div>
             <div className="md:grid md:grid-cols-2">
-              <div className="mt-[25px] w-[100%] rounded-lg border border-gray-200 bg-white shadow-sm md:w-[98%]">
+              <div className="mt-[25px] w-full rounded-lg border border-gray-200 bg-white shadow-sm md:w-[98%]">
                 <div className="rounded-t-lg bg-[#DF03AF] p-3">
                   <a className="cursor-pointer">
                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-white">
@@ -48,7 +48,7 @@ const DashboardComponent = () => {
                         <td className="p-[5px] text-[#DF03AF]">
                           <b>Email:</b>
                         </td>
-                        <td className="p-[5px] pl-[20px] text-gray-950">
+                        <td className="p-[5px] pl-5 text-gray-950">
                           {email}
                         </td>
                       </tr>
@@ -56,7 +56,7 @@ const DashboardComponent = () => {
                         <td className="p-[5px] text-[#DF03AF]">
                           <b>Tipologia di account:</b>
                         </td>
-                        <td className="p-[5px] pl-[20px] text-gray-950">
+                        <td className="p-[5px] pl-5 text-gray-950">
                           Amministratore
                         </td>
                       </tr>
@@ -64,7 +64,7 @@ const DashboardComponent = () => {
                         <td className="p-[5px] text-[#DF03AF]">
                           <b>Foto profilo:</b>
                         </td>
-                        <td className="p-[5px] pl-[20px] text-gray-950">
+                        <td className="p-[5px] pl-5 text-gray-950">
                           <img
                             src="./user-profile-foto.PNG"
                             className="w-[30px]"
@@ -76,7 +76,7 @@ const DashboardComponent = () => {
                   </table>
                 </div>
               </div>
-              <div className="mt-[25px] w-[100%] rounded-lg border border-gray-200 bg-white shadow-sm md:w-[100%]">
+              <div className="mt-[25px] w-full rounded-lg border border-gray-200 bg-white shadow-sm md:w-full">
                 <div className="rounded-t-lg bg-[#DF03AF] p-3">
                   <a className="cursor-pointer">
                     <h5 className="mb-2 text-2xl font-bold tracking-tight text-white">
@@ -85,14 +85,14 @@ const DashboardComponent = () => {
                   </a>
                 </div>
                 <div className="p-5">
-                  <div className="w-[100%] md:w-[100%] lg:w-[100%]">
+                  <div className="w-full md:w-full lg:w-full">
                     <table>
                       <tbody>
                         <tr>
                           <td className="p-[5px] text-[#DF03AF]">
                             <b>Numero di auto senza targa:</b>
                           </td>
-                          <td className="p-[5px] pl-[20px] text-gray-950">
+                          <td className="p-[5px] pl-5 text-gray-950">
                             {report.autoSenzaTarga}
                             &nbsp; auto
                           </td>
@@ -101,7 +101,7 @@ const DashboardComponent = () => {
                           <td className="p-[5px] text-[#DF03AF]">
                             <b>Numero di auto con targa:</b>
                           </td>
-                          <td className="p-[5px] pl-[20px] text-gray-950">
+                          <td className="p-[5px] pl-5 text-gray-950">
                             {report.autoConTarga}
                             &nbsp; auto
                           </td>
@@ -110,7 +110,7 @@ const DashboardComponent = () => {
                           <td className="p-[5px] text-[#DF03AF]">
                             <b>Numero totale di auto:</b>
                           </td>
-                          <td className="p-[5px] pl-[20px] text-gray-950">
+                          <td className="p-[5px] pl-5 text-gray-950">
                             {report.autoComplessive}
                             &nbsp; auto
                           </td>
