@@ -30,12 +30,12 @@ const useRegistraAuto = () => {
       nErr++;
     }
 
-    if (numeroRuote == 0) {
+    if (numeroRuote == 0 || !numeroRuote) {
       toast.warn("Inserisci il numero delle ruote dell'auto");
       nErr++;
     }
 
-    if (cavalli == 0) {
+    if (cavalli == 0 || !cavalli) {
       toast.warn("Inserisci il numero di cavalli dell'auto");
       nErr++;
     }
