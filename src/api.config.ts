@@ -6,4 +6,5 @@ export class ApiConfig {
   elencoAutoAll: string = "http://localhost:8087/api/auto/elenco";
   reportAuto: string = "http://localhost:8087/api/auto/report";
   impostaTarga: string = "http://localhost:8087/api/auto/imposta/targa";
+  eliminaAuto: string = "http://localhost:8087/api/auto/elimina"
 }

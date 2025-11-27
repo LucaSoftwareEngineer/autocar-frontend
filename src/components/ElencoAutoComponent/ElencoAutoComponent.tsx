@@ -9,6 +9,7 @@ const ElencoAutoComponent = () => {
     handletSelectColonnaOnChange,
     handlerCercaAutoOnSubmit,
     handlerResetFiltro,
+    handlerEliminaAuto,
   } = useCercaAuto();
 
   const colonne = [
@@ -141,7 +142,14 @@ const ElencoAutoComponent = () => {
                   <td className="px-6 py-4">{auto.colore}</td>
                   <td className="px-6 py-4">{auto.numeroRuote}</td>
                   <td className="px-6 py-4">{auto.cavalli}</td>
-                  <td className="px-6 py-4"></td>
+                  <td className="px-6 py-4">
+                    <button
+                      onClick={() => handlerEliminaAuto(auto.id)}
+                      className="hover:bg-danger-strong focus:ring-danger-medium rounded-base box-border cursor-pointer rounded-xs border border-transparent bg-red-500 px-2 py-0 text-sm leading-5 font-medium text-white shadow-xs focus:ring-4 focus:outline-none"
+                    >
+                      x
+                    </button>
+                  </td>
                 </tr>
               ))}
             </tbody>
