@@ -6,4 +6,5 @@ export interface IAuto {
   colore: string;
   numeroRuote: number;
   cavalli: number;
+  venduta: boolean;
 }

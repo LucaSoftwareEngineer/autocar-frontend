@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\services",
+    "\\src\\services\\ElencoAutoService",
+    "\\src\\services\\EliminaAutoService",
+    "\\src\\services\\RegistraAutoService",
+    "\\src\\services\\RegistraVenditaService",
+    "\\src\\services\\ReportAutoService",
+    "\\src\\services\\TokenCheckService",
+    "\\src\\services\\UserDetailsService"
+  ],
+  "SelectedNode": "\\src\\hooks\\useCercaAuto.tsx",
+  "PreviewInSolutionExplorer": false
+}
