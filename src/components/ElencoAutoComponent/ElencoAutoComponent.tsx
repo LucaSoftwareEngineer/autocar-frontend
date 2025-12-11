@@ -19,6 +19,7 @@ const ElencoAutoComponent = () => {
     { key: "COLORE", value: "Colore" },
     { key: "NUMERO_RUOTE", value: "N. Ruote" },
     { key: "CAVALLI", value: "Cavalli" },
+    { key: "STATO", value: "Stato" }
   ];
 
   return (
@@ -142,6 +143,13 @@ const ElencoAutoComponent = () => {
                   <td className="px-6 py-4">{auto.colore}</td>
                   <td className="px-6 py-4">{auto.numeroRuote}</td>
                   <td className="px-6 py-4">{auto.cavalli}</td>
+                  <td className="px-6 py-4">
+                    {
+                        auto.venduta 
+                        ? <a className="text-white bg-red-500 box-border border border-transparent hover:bg-success-strong focus:ring-4 focus:ring-success-medium shadow-xs font-medium leading-5 rounded-base text-sm px-2 py-1.25 focus:outline-none">Venduta</a>
+                        : <a className="text-white bg-green-500 box-border border border-transparent hover:bg-success-strong focus:ring-4 focus:ring-success-medium shadow-xs font-medium leading-5 rounded-base text-sm px-2 py-1.25 focus:outline-none">Disponibile</a>
+                    }
+                  </td>
                   <td className="px-6 py-4">
                     <button
                       onClick={() => handlerEliminaAuto(auto.id)}

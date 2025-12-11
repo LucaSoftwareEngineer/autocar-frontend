@@ -30,6 +30,13 @@ const ElencoAutoFilterService = (props: IFiltraAuto) => {
     case "CAVALLI":
       return props.listaAuto.filter((auto) => auto.cavalli === props.filtro);
       break;
+    case "STATO":
+      if (props.filtro == "Venduta") {
+        return props.listaAuto.filter((auto) => auto.venduta == true);
+      } else if (props.filtro == "Disponibile") {
+        return props.listaAuto.filter((auto) => auto.venduta == false || auto.venduta == null);
+      }
+      break;
     default:
       return props.listaAuto;
       break;
